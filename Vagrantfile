@@ -9,12 +9,12 @@ Vagrant.configure("2") do |config|
   config.vm.network :private_network, ip: "192.168.33.10"
 
   # Shared folders
-  config.vm.synced_folder "./", "/var/www", id: "vagrant-root"
+  config.vm.synced_folder "drupal/", "/var/www/drupal"
 
   # Tame virtualbox
   config.vm.provider :virtualbox do |vb|
     # Show GUI for debugging
-    vb.gui = true
+    # vb.gui = true
     #   # Override memory settings
     vb.customize ["modifyvm", :id, "--memory", "1024"]
   end
